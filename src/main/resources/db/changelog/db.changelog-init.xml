@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet  id="1"  author="dattieu">
+        <createTable  tableName="customers">
+            <column  name="id"  type="bigint"  autoIncrement="true">
+                <constraints  primaryKey="true"  nullable="false"/>
+            </column>
+            <column  name="name"  type="varchar(255)"/>
+            <column  name="phone"  type="varchar(255)" />
+            <column  name="address"  type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet  id="2"  author="dattieu">
+        <createTable  tableName="products">
+            <column  name="id"  type="bigint"  autoIncrement="true">
+                <constraints  primaryKey="true"  nullable="false"/>
+            </column>
+            <column  name="product_id"  type="varchar(255)"/>
+            <column  name="product_name"  type="varchar(255)" />
+            <column  name="product_version"  type="varchar(255)"/>
+            <column  name="template_params"  type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
