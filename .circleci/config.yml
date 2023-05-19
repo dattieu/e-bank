@@ -39,11 +39,11 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - dev
       - deploy:
           requires:
             - build-and-push
           filters:
             branches:
               only:
-                - master
+                - dev
