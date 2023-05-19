@@ -20,7 +20,7 @@ jobs:
       - run:
           name: build
           command: |
-            echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+            docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
             docker build -t banking-service:latest .
             docker images
             docker push $DOCKER_USERNAME/$DOCKER_IMAGE:$DOCKER_TAG
