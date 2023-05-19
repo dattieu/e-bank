@@ -1,0 +1,49 @@
+version: 2.1
+ 
+orbs:
+  docker: circleci/docker@2.0.1
+ 
+jobs:
+  build-and-push:
+    docker:
+      - image: cimg/openjdk:11.0.13
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: run build
+          command: |
+            chmod +x mvnw
+            sed -i "s/\r$//" mvnw
+            ./mvnw --version
+            ./mvnw package
+      - run:
+          name: build
+          command: |
+            docker build -t banking-service:latest .
+            docker images
+  deploy:
+    executor: docker/docker
+    steps:
+      - run:
+          name: run build
+          command: |
+            whoami
+            pwd
+            "echo deploy succes"
+ 
+workflows:
+  my-workflow:
+    jobs:
+      - build-and-push:
+          filters:
+            branches:
+              only:
+                - master
+      - deploy:
+          requires:
+            - build-and-push
+          filters:
+            branches:
+              only:
+                - master
