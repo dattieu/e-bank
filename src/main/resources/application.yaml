@@ -1,3 +1,5 @@
+server:
+  port: 8090
 spring:
   datasource:
     username: sa
@@ -18,3 +20,15 @@ spring:
     show-sql: 'true'
     hibernate:
       ddl-auto: update
+
+keycloak:
+  auth-server-url: http://localhost:8080
+  credentials:
+    secret: J2CORr0VDTgXtFStLd3LVhKhiSd4lDvR
+  realm: banking-service
+  bearer-only: 'true'
+  use-resource-role-mappings: 'true'
+  ssl-required: none
+  resource: banking-service-client
+
+

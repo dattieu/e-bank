@@ -10,6 +10,7 @@ import com.dtu.banking.customer.service.CustomerService;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -36,6 +37,7 @@ public class CustomerResource {
     }
 
     @GetMapping("/customers")
+    @PreAuthorize("hasRole('admin')")
     public ResponseEntity<FindCustomerResponse> findCustomer(@Valid @RequestParam(value = "phone") String phone) {
         log.info("REST request to find customer with phone: {}", phone);
         Customer customer;
