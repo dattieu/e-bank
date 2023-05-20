@@ -1,8 +1,9 @@
 package com.dtu.banking.service;
 
-import com.dtu.banking.domain.Customer;
+import com.dtu.banking.customer.domain.Customer;
+import com.dtu.banking.customer.service.CustomerService;
 import com.dtu.banking.exception.CustomerAlreadyExistsException;
-import com.dtu.banking.repository.CustomerRepository;
+import com.dtu.banking.customer.repository.CustomerRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
