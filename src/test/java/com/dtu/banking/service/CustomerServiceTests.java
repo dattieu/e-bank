@@ -1,8 +1,8 @@
 package com.dtu.banking.service;
 
+import com.dtu.banking.core.exception.BusinessException;
 import com.dtu.banking.customer.domain.Customer;
 import com.dtu.banking.customer.service.CustomerService;
-import com.dtu.banking.exception.CustomerAlreadyExistsException;
 import com.dtu.banking.customer.repository.CustomerRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -47,7 +47,7 @@ public class CustomerServiceTests {
         customer.setPhone("123456789");
         when(customerRepository.findCustomerByPhone("123456789")).thenReturn(Optional.of(customer));
 
-        Assertions.assertThrows(CustomerAlreadyExistsException.class,
+        Assertions.assertThrows(BusinessException.class,
                 () -> customerService.findCustomer("3335678901"));
     }
 }
