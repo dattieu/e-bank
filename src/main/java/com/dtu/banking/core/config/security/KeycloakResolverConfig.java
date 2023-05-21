@@ -1,4 +1,4 @@
-package com.dtu.banking.core.config;
+package com.dtu.banking.core.config.security;
 
 import org.keycloak.adapters.KeycloakConfigResolver;
 import org.keycloak.adapters.springboot.KeycloakSpringBootConfigResolver;

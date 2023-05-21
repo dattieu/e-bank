@@ -1,4 +1,4 @@
-package com.dtu.banking.core.config;
+package com.dtu.banking.core.config.security;
 
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
