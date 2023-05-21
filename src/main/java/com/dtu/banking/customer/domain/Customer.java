@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Data
@@ -21,10 +22,12 @@ public class Customer extends Auditable<String> implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @NotNull
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "phone")
+    @NotNull
+    @Column(name = "phone", nullable = false)
     private String phone;
 
     @Column(name = "address")

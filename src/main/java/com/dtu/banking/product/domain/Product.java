@@ -5,6 +5,7 @@ import lombok.Data;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Map;
 
@@ -18,10 +19,12 @@ public class Product extends Auditable<String> implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @Column(name = "product_id")
+    @NotNull
+    @Column(name = "product_id", nullable = false)
     private String productId;
 
-    @Column(name = "product_version")
+    @NotNull
+    @Column(name = "product_version", nullable = false)
     private String productVersion;
 
     @Column(name = "product_name")

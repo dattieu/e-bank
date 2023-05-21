@@ -20,6 +20,11 @@ public class ProductResource {
 
     private final ProductService productService;
 
+    /**
+     * Find a financial product by product id
+     * @param productId product id
+     * @return
+     */
     @GetMapping("/products")
     public ResponseEntity<FindProductResponse> findProduct(@Valid @RequestParam(value = "productId") String productId) {
         log.info("REST request to find product with productId: {}", productId);
