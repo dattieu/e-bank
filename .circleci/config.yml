@@ -14,6 +14,9 @@ jobs:
       - checkout
       - setup_remote_docker
       - run:
+            name: Analyze on SonarCloud
+            command: mvn verify sonar:sonar -Dsonar.projectKey=dattieu_e-bank
+      - run:
           name: maven package
           command: |
             chmod +x mvnw
@@ -62,6 +65,10 @@ jobs:
       - run: ssh -v $DEPLOY_USER@$DEPLOY_SERVER './deploy.sh'
 
 workflows:
+  main:
+    jobs:
+      - build:
+          context: SonarCloud
   my-workflow:
     jobs:
       - build-and-push:

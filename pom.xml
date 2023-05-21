@@ -23,6 +23,8 @@
 		<keycloak.version>21.0.1</keycloak.version>
 		<unirest.version>1.4.9</unirest.version>
 		<zalando.version>0.23.0</zalando.version>
+		<sonar.organization>dattieu</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
 	<dependencies>
 		<dependency>
