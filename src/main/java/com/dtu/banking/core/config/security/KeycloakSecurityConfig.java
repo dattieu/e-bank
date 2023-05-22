@@ -43,7 +43,9 @@ public class KeycloakSecurityConfig extends KeycloakWebSecurityConfigurerAdapter
                 .and()
                 .authorizeRequests()
                 .antMatchers("/api/admin/**").hasAuthority("admin")
-                .antMatchers("/api/**").authenticated();
+                .antMatchers("/api/**").authenticated()
+                .antMatchers("/actuator/**").permitAll()
+                .antMatchers("/management/**").permitAll();
         // TODO authorization config
 //                .antMatchers("/management/**").permitAll()
 //                .and()
